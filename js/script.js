@@ -17,3 +17,16 @@ for (let i = 0; i < 5; i++) {
 for (let i = 0; i < randomNumbers.length; i++) {
     numbersList.innerHTML += '<li>' + randomNumbers[i] + '</li>';
 }
+
+// avvio countdown di 30 secondi
+let seconds = 30;
+countdown.innerHTML = seconds;
+
+const timer = setInterval(function() {
+    seconds = seconds - 1;
+    countdown.innerHTML = seconds;
+    
+    if (seconds === 0) {
+        clearInterval(timer);
+    }
+}, 1000);
