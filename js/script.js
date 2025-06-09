@@ -6,3 +6,9 @@ const answersForm = document.getElementById('answers-form');
 
 // creo array per numeri casuali
 const randomNumbers = [];
+
+// genero 5 numeri casuali da 1 a 50
+for (let i = 0; i < 5; i++) {
+    const randomNum = Math.floor(Math.random() * 50) + 1;
+    randomNumbers.push(randomNum);
+}
