@@ -36,3 +36,43 @@ const timer = setInterval(function() {
     answersForm.classList.remove('d-none');
     }
 }, 1000);
+
+// form
+answersForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // leggo valori input
+    const inputs = document.querySelectorAll('#input-group input');
+    const userAnswers = [];
+    
+    for (let i = 0; i < inputs.length; i++) {
+        const value = inputs[i].value;
+        if (value === '') {
+            document.getElementById('message').innerHTML = 'Compila tutti i campi!';
+            return;
+        }
+        userAnswers.push(Number(value));
+    }
+    
+    // confronto numeri
+    let correctCount = 0;
+    const correctNumbers = [];
+    
+    for (let i = 0; i < userAnswers.length; i++) {
+        if (randomNumbers.includes(userAnswers[i])) {
+            correctCount++;
+            correctNumbers.push(userAnswers[i]);
+        }
+    }
+    
+    // mostro risultato con inner
+    const message = document.getElementById('message');
+    if (correctCount === 0) {
+        message.innerHTML = 'Nessun numero corretto!';
+    } else if (correctCount === 5) {
+        message.innerHTML = 'Perfetto! Tutti i numeri corretti!';
+    } else {
+        message.innerHTML = `Hai indovinato ${correctCount} numeri: ${correctNumbers.join(', ')}`;
+    }
+    message.className = 'text-success text-center';
+});
