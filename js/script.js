@@ -12,3 +12,8 @@ for (let i = 0; i < 5; i++) {
     const randomNum = Math.floor(Math.random() * 50) + 1;
     randomNumbers.push(randomNum);
 }
+
+// mostro i numri
+for (let i = 0; i < randomNumbers.length; i++) {
+    numbersList.innerHTML += '<li>' + randomNumbers[i] + '</li>';
+}
