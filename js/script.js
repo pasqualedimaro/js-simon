@@ -28,5 +28,11 @@ const timer = setInterval(function() {
     
     if (seconds === 0) {
         clearInterval(timer);
+        
+    // nascondo numeri e mostro form
+    numbersList.innerHTML = '';
+    countdown.style.display = 'none';
+    instructions.innerHTML = 'Inserisci i numeri che ricordi:';
+    answersForm.classList.remove('d-none');
     }
 }, 1000);
